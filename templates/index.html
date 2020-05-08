@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>TOTAL</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for stock in stocks %}
+                {% if stock[2] > 0 %}
+                <tr>
+                    <td>{{stock[0]}}</td>
+                    <td>{{stock[1]}}</td>
+                    <td>{{stock[2]}}</td>
+                    <td>{{stock[3]}}</td>
+                    <td>{{stock[4]}}</td>
+                </tr>
+                {% endif %}
+            {% endfor %}
+            <tr>
+                <td>Cash</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>{{cash}}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <th>{{total}}</th>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}
